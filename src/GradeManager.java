@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GradeManager {
     // Method to reverse student names in an array
@@ -14,7 +15,7 @@ public class GradeManager {
 
     // Method to calculate letter grades
     public static char getLetterGrade(int score) {
-        char grade = 'A';
+        char grade = 0;
         if(score >= 90 && score <= 100){
             grade = 'A';
         } else if(score >= 80 && score <= 89) {
@@ -23,7 +24,7 @@ public class GradeManager {
             grade = 'C';
         } else if(score >= 60 && score <= 69) {
             grade = 'D';
-        } else if(grade < 60){
+        } else if(score < 60){
             grade = 'F';
         } else {
             System.out.println("Invalid Input");
@@ -43,5 +44,13 @@ public class GradeManager {
             }
         }
         return needRetake;
+    }
+
+    public static void main(String[] args) {
+        String[] students = {"Alice", "Bob", "Charlie", "Diana"};
+        int[] scores = {95, 67, 45, 78};
+        System.out.println(Arrays.toString(reverseStudentNames(students)));
+        System.out.println(getLetterGrade(scores[3]));
+        System.out.println(findFailingStudents(students, scores));
     }
 }
