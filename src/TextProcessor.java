@@ -1,6 +1,7 @@
 package src;
 
-import static java.lang.StringUTF16.indexOf;
+
+import java.util.Arrays;
 
 public class TextProcessor {
     // Count words in a sentence
@@ -14,7 +15,7 @@ public class TextProcessor {
         }
         //for (int i = 0; i < split.length; i++) {}
 
-        return split.length + 1;
+        return split.length;
     }
 
     // Replace specific words
@@ -26,11 +27,11 @@ public class TextProcessor {
                 spl[i] = newWord;
             }
         }
-        return spl.toString();
+        text = Arrays.toString(spl);
+        return text;
     }
     public static void main(String[] args) {
-// Test with: "Java is fun and Java is powerful"
-// Count words
-// Replace "Java" with "Programming"
+        System.out.println(countWords("Java is fun and Java is powerful"));
+        System.out.println(replaceWord("Java is fun and Java is powerful", "Java", "Prgramming"));
     }
 }
