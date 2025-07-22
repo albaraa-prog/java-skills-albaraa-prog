@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class GradeManager {
     // Method to reverse student names in an array
     public static String[] reverseStudentNames(String[] names) {
@@ -21,13 +23,25 @@ public class GradeManager {
             grade = 'C';
         } else if(score >= 60 && score <= 69) {
             grade = 'D';
-        } else if(grade <= 60){
+        } else if(grade < 60){
             grade = 'F';
         } else {
             System.out.println("Invalid Input");
         }
-// Use if-else conditions:
-// 90-100: 'A', 80-89: 'B', 70-79: 'C', 60-69: 'D', below 60: 'F'
         return grade;
+    }
+    // Method to find students who need to retake exam
+    public static ArrayList<String> findFailingStudents(String[] names, int[] scores) {
+// Return array of names where score is below 60
+// Use loops to check each student
+
+        ArrayList<String> needRetake = new ArrayList<String>();
+        for(int i = 0; i < scores.length; i++){
+            if(scores[i] < 60){
+                String faildStudent = names[i];
+                needRetake.add(faildStudent);
+            }
+        }
+        return needRetake;
     }
 }
